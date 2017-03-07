@@ -19,12 +19,22 @@ public class ParsePost {
         int j;
         int num1, num2, interAns;
 
-        for (j = 0; j < input.length(); j++) {        //для каждого символа
-            ch = input.charAt(j);                     //чтение символа
-            theStack.displayStack(" " + ch + " "); //*диагностика*
-            if (ch >= '0' && ch <= '9') {             //если это цифра
-                theStack.push((int)(ch -'0'));        //занести в стэк
-            } else {                                  //если оператор
+        for (j = 0; j < input.length(); j++) {                  //для каждого символа
+//            ch = input.charAt(j);                               //чтение символа
+
+           char[]c = input.toCharArray();
+           ch = c[j];
+
+           theStack.displayStack(" " + ch + " ");            //*диагностика*
+           if(Character.isDigit(ch)) {
+               theStack.push(Character.getNumericValue(ch));
+//                if (ch >= '0' && ch <= '9') {             //если это цифра
+//                theStack.push((int)(ch -'0'));        //занести в стэк
+//            } else {                                  //если оператор -
+
+           } else if(ch ==' '){
+
+           } else if(ch =='+' || ch == '-' || ch== '*' || ch=='/' || ch=='(' || ch == ')') {
                 num2 = theStack.pop();                //извлечение операндов
                 num1 = theStack.pop();
                 switch (ch) {                          //выполнение арифметических операций

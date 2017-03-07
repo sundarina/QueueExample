@@ -6,12 +6,12 @@ package arithmeticParser;
 public class StackX {
     private int maxSize;
     private int[] stackArray;
-    private int top;
+    private int top = -1;
 
     public StackX(int size) {
         this.maxSize = size;
         this.stackArray = new int[maxSize];
-        this.top = -1;
+      //  this.top = -1;
     }
 
     public void push(int j) { //paзмещение элемента на вершине стэка
